@@ -6,14 +6,18 @@
     <title>Chat Application</title>
 </head>
 <body style="margin-left:20px">
-<h1 style="margin-top:10px; margin-bottom:20px">Peer to peer Chat Application</h1>
+<h1 align="center" style="margin-top:10px; margin-bottom:40px">Welcome in this P2P Chat Application!</h1>
+<div class="form-group">
 <form th:action="@{/update}" th:object="${user}" method="post">
     <label for="username">Your username:</label>
     <input type="hidden" th:field="*{id}"/>
-    <input style="width:15%" id="username" type="text" th:field="*{username}"/>
-    <input type="submit" value="Update"/>
+    <input class="form-control" style="width:15%" id="username" type="text" th:field="*{username}"/>
+    <input class="btn btn-info" type="submit" value="Update"/>
 </form>
+</div>
+<div class="alert alert-danger" role="alert">
 <p style="font-size: 25px; margin-top: 30px" class="text-danger" th:text="${error}"/>
+</div>
 <ul>
     <li th:text="${defaultMessage.username}"/>
     <p th:text="${defaultMessage.text}"/>
@@ -22,12 +26,14 @@
     <li th:text="${message.username}"/>
     <p th:text="${message.text}"/>
 </ul>
+<div class="form-group">
 <form th:action="@{/post}" th:object="${newMessage}" method="post">
     <input type="hidden" th:field="${user.id}"/>
     <input type="hidden" th:field="${user.username}"/>
-    <input style="width:15%; height:15%" type="text" th:field="*{text}"/>
-    <input type="submit" value="Post"/>
+    <input class="form-control" style="width:15%; height:15%" type="text" th:field="*{text}"/>
+    <input class="btn btn-primary" type="submit" value="Post"/>
 </form>
+</div>
 <p style="font-size: 25px; margin-top: 30px" class="text-danger" th:text="${messageError}"/>
 </body>
 </html>

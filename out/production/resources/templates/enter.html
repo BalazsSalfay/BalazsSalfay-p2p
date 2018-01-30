@@ -9,8 +9,8 @@
 <h1 style="margin-top: 20px">Enter</h1>
 <form th:action="@{/enter}" th:object="${user}" method="post">
     <label for="username">Choose your name:</label>
-    <input id="username" type="text" th:field="*{username}"/>
-    <input type="submit" value="Enter"/>
+    <input style="width:30%;" class="form-control" id="username" type="text" th:field="*{username}"/>
+    <input class="btn btn-info" type="submit" value="Enter"/>
 </form>
 <p style="font-size: 25px; margin-top: 30px" class="text-danger" th:text="${error}" />
 </body>
