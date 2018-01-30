@@ -10,25 +10,26 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.time.LocalDateTime;
+import java.util.Random;
 
 @Entity
 public class Message {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
   private long id;
   private String timestamp;
   private String username;
   private String text;
 
   public Message() {
+    this.timestamp = LocalDateTime.now().toString();
   }
 
-  public Message(long id, String timestamp, String username, String text) {
-    this.id = id;
-    this.timestamp = LocalDateTime.now().toString();
+  public Message(String username, String text) {
     this.username = username;
     this.text = text;
+    this.id = randomGeneratedId();
+    this.timestamp = LocalDateTime.now().toString();
   }
 
   public long getId() {
@@ -36,7 +37,7 @@ public class Message {
   }
 
   public void setId(long id) {
-    this.id = id;
+    this.id = randomGeneratedId();
   }
 
   public String getTimestamp() {
@@ -61,5 +62,9 @@ public class Message {
 
   public void setText(String text) {
     this.text = text;
+  }
+
+  public long randomGeneratedId() {
+    return (long) (Math.random() * 99999999 + 1000000 );
   }
 }
