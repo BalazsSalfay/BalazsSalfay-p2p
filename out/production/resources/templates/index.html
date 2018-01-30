@@ -5,7 +5,14 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous"/>
     <title>Chat Application</title>
 </head>
-<body>
-<h1 style="margin-top: 20px" align="center">Peer to peer Chat Application</h1>
+<body style="margin-left:20px">
+<h1 style="margin-top:10px; margin-bottom:20px">Peer to peer Chat Application</h1>
+<form th:action="@{/}" th:object="${user}" method="post">
+    <label for="username">Your username:</label>
+    <input type="hidden" th:field="*{id}"/>
+    <input style="width:15%" id="username" type="text" th:field="*{username}"/>
+    <input type="submit" value="Update"/>
+</form>
+<p style="font-size: 25px; margin-top: 30px" class="text-danger" th:text="${error}" />
 </body>
 </html>

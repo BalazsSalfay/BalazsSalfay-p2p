@@ -12,4 +12,6 @@ public interface UserService {
   void delete(int id);
   void update(User user);
   boolean isNameInTheList(String username);
+  boolean isUserExist();
+  User getUserById(int id);
 }

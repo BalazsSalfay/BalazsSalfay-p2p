@@ -47,9 +47,28 @@ public class ChatWebController {
   }
 
   @GetMapping("/")
-  public String showMainPage() {
-    return "index";
+  public String showMainPage(@ModelAttribute User user, Model model) {
+    if (!userService.isUserExist()) {
+      return "redirect:/enter";
+    } else {
+      model.addAttribute("user", userService.getUserById(1));
+      return "index";
+    }
   }
+
+  @PostMapping("/")
+    public String updateUsername(@ModelAttribute User user, Model model) {
+      if (user.getUsername().isEmpty()) {
+        model.addAttribute("error", "The username field is empty. Please choose a username!");
+        return "index";
+      } else if (userService.isNameInTheList(user.getUsername())) {
+        model.addAttribute("error", "The username is already exist! Please choose another one!");
+        return "index";
+      } else {
+        userService.update(user);
+        return "redirect:/";
+      }
+    }
 
 }
 
