@@ -3,21 +3,21 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous"/>
+    <script src="webjars/jquery/1.11.1/jquery.min.js"></script>
+    <script src="webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
     <title>Chat Application</title>
 </head>
-<body style="margin-left:20px">
-<h1 align="center" style="margin-top:10px; margin-bottom:40px">Welcome in this P2P Chat Application!</h1>
+<body class="text-light" style="font-weight:bold; margin-left:100px; background-image: url(http://www.businessnewsdaily.com/images/i/000/006/679/original/live-chat-solutions.jpg?1408985355)">
+<h1 align="center" style="margin-top:30px; margin-bottom:30px">Welcome in my P2P Chat Application!</h1>
 <div class="form-group">
 <form th:action="@{/update}" th:object="${user}" method="post">
     <label for="username">Your username:</label>
     <input type="hidden" th:field="*{id}"/>
-    <input class="form-control" style="width:15%" id="username" type="text" th:field="*{username}"/>
+    <input class="form-control" style="width:15%; margin-bottom: 20px;" id="username" type="text" th:field="*{username}"/>
     <input class="btn btn-info" type="submit" value="Update"/>
 </form>
 </div>
-<div class="alert alert-danger" role="alert">
 <p style="font-size: 25px; margin-top: 30px" class="text-danger" th:text="${error}"/>
-</div>
 <ul>
     <li th:text="${defaultMessage.username}"/>
     <p th:text="${defaultMessage.text}"/>
@@ -30,7 +30,7 @@
 <form th:action="@{/post}" th:object="${newMessage}" method="post">
     <input type="hidden" th:field="${user.id}"/>
     <input type="hidden" th:field="${user.username}"/>
-    <input class="form-control" style="width:15%; height:15%" type="text" th:field="*{text}"/>
+    <input class="form-control" style="width:15%; height:20%; margin-bottom: 20px;" type="text" th:field="*{text}"/>
     <input class="btn btn-primary" type="submit" value="Post"/>
 </form>
 </div>

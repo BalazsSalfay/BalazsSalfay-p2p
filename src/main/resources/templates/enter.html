@@ -3,15 +3,17 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous"/>
+    <script src="webjars/jquery/1.11.1/jquery.min.js"></script>
+    <script src="webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
     <title>Chat Application</title>
 </head>
-<body style="margin-left: 20px">
+<body class="text-light" style="font-weight:bold; margin-left: 20px; background-image: url(http://www.businessnewsdaily.com/images/i/000/006/679/original/live-chat-solutions.jpg?1408985355)">
 <h1 style="margin-top: 20px">Enter</h1>
 <form th:action="@{/enter}" th:object="${user}" method="post">
     <label for="username">Choose your name:</label>
-    <input style="width:30%;" class="form-control" id="username" type="text" th:field="*{username}"/>
+    <input style="width:30%; margin-bottom: 20px;" class="form-control" id="username" type="text" th:field="*{username}"/>
     <input class="btn btn-info" type="submit" value="Enter"/>
 </form>
-<p style="font-size: 25px; margin-top: 30px" class="text-danger" th:text="${error}" />
+<p class="text-danger" style="font-size: 25px; margin-top: 30px" th:text="${error}" />
 </body>
 </html>
