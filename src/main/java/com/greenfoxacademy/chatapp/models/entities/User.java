@@ -1,4 +1,4 @@
-package com.greenfoxacademy.chatapp.models;
+package com.greenfoxacademy.chatapp.models.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

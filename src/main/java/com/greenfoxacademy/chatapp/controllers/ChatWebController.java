@@ -2,9 +2,9 @@ package com.greenfoxacademy.chatapp.controllers;
 
 import com.greenfoxacademy.chatapp.factories.MessageFactory;
 import com.greenfoxacademy.chatapp.factories.UserFactory;
-import com.greenfoxacademy.chatapp.models.Error;
-import com.greenfoxacademy.chatapp.models.Message;
-import com.greenfoxacademy.chatapp.models.User;
+import com.greenfoxacademy.chatapp.models.entities.Error;
+import com.greenfoxacademy.chatapp.models.entities.Message;
+import com.greenfoxacademy.chatapp.models.entities.User;
 import com.greenfoxacademy.chatapp.services.MessageService;
 import com.greenfoxacademy.chatapp.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,8 +13,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-
-import java.util.Map;
 
 @Controller
 public class ChatWebController {
@@ -88,7 +86,7 @@ public class ChatWebController {
       model.addAttribute("messageError","The text field is empty. Please add some message!");
       return "index";
     } else {
-      messageService.create(message,user);
+      messageService.saveMessage(message,user);
       return "redirect:/";
     }
   }

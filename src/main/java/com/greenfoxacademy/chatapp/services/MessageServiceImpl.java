@@ -1,7 +1,7 @@
 package com.greenfoxacademy.chatapp.services;
 
-import com.greenfoxacademy.chatapp.models.Message;
-import com.greenfoxacademy.chatapp.models.User;
+import com.greenfoxacademy.chatapp.models.entities.Message;
+import com.greenfoxacademy.chatapp.models.entities.User;
 import com.greenfoxacademy.chatapp.repositories.MessageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +15,7 @@ public class MessageServiceImpl implements MessageService {
   MessageRepository messageRepository;
 
   @Override
-  public void create(Message message, User user) {
+  public void saveMessage(Message message, User user) {
     message.setUsername(user.getUsername());
     messageRepository.save(message);
   }

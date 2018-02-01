@@ -1,11 +1,9 @@
 package com.greenfoxacademy.chatapp.services;
 
-import com.greenfoxacademy.chatapp.models.User;
+import com.greenfoxacademy.chatapp.models.entities.User;
 import com.greenfoxacademy.chatapp.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {

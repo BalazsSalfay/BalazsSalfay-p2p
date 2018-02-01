@@ -1,6 +1,6 @@
 package com.greenfoxacademy.chatapp.factories;
 
-import com.greenfoxacademy.chatapp.models.User;
+import com.greenfoxacademy.chatapp.models.entities.User;
 import org.springframework.stereotype.Component;
 
 @Component

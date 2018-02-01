@@ -1,9 +1,7 @@
 package com.greenfoxacademy.chatapp.services;
 
-import com.greenfoxacademy.chatapp.models.User;
+import com.greenfoxacademy.chatapp.models.entities.User;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public interface UserService {
